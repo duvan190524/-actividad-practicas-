@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duvan Alexis · Entrenamiento y disciplina</title>
+  <meta name="description" content="Página personal de Duvan Alexis: pasión por entrenar, disciplina y constancia.">
+  <meta name="theme-color" content="#0a0a0b">
+  <!-- Ícono de la pestaña (un emoji, sin archivos externos) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💪%3C/text%3E%3C/svg%3E">
+
+  <!-- Tipografías de Google Fonts: Bebas Neue (títulos) + Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== COLORES (cambia el acento aquí) ========== */
+    :root{
+      --bg:#0a0a0b; --bg2:#101012; --card:#17171a; --borde:#2a2a30;
+      --texto:#f4f4f5; --suave:#a1a1aa;
+      --acento:#ff5a1f;            /* CAMBIA ESTO: naranja. Prueba #39ff14 (verde neón) o #2f6bff (azul) */
+      --acento2:#ffb020;
+      --degradado:linear-gradient(135deg,var(--acento),var(--acento2));
+      --radio:20px; --sombra:0 10px 30px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:76px}
+    body{background:var(--bg);color:var(--texto);font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+    h1,h2,h3{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.04em;font-weight:400;line-height:1.05}
+    a{color:inherit;text-decoration:none}
+    :focus-visible{outline:3px solid var(--acento2);outline-offset:3px}
+    .saltar{position:absolute;left:-999px;top:8px;background:var(--acento);color:#000;padding:8px 14px;border-radius:8px;z-index:200}
+    .saltar:focus{left:8px}
+    section{padding:96px 20px}
+    .caja{max-width:1000px;margin:0 auto}
+    .titulo{font-size:clamp(2.2rem,6vw,3.4rem);margin-bottom:10px}
+    .titulo span{background:var(--degradado);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{color:var(--suave);max-width:560px;margin-bottom:36px}
+
+    /* ========== MENÚ FIJO ========== */
+    header{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(10,10,11,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--borde)}
+    .nav{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.06em}
+    .logo b{color:var(--acento);font-weight:400}
+    .menu{display:flex;gap:22px;list-style:none}
+    .menu a{color:var(--suave);font-weight:500;font-size:.95rem;transition:color .2s}
+    .menu a:hover{color:var(--acento)}
+    .burger{display:none;background:none;border:1px solid var(--borde);color:var(--texto);font-size:1.3rem;padding:4px 12px;border-radius:10px;cursor:pointer}
+
+    /* ========== PORTADA ========== */
+    #inicio{min-height:100svh;display:grid;place-items:center;text-align:center;padding-top:110px;
+      background:radial-gradient(700px 400px at 50% 30%,rgba(255,90,31,.22),transparent 70%),var(--bg)}
+    .hola{color:var(--acento2);font-weight:700;letter-spacing:.25em;text-transform:uppercase;font-size:.85rem}
+    #inicio h1{font-size:clamp(4rem,17vw,9.5rem);background:var(--degradado);-webkit-background-clip:text;background-clip:text;color:transparent;
+      filter:drop-shadow(0 0 22px rgba(255,90,31,.35));animation:entrada 1s ease both}
+    .typed{font-size:clamp(1.05rem,3vw,1.5rem);min-height:2em;color:var(--texto)}
+    .cursor{color:var(--acento);animation:parpadeo 1s steps(1) infinite}
+    .botones{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+    @keyframes entrada{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+    @keyframes parpadeo{50%{opacity:0}}
+
+    /* ========== BOTONES ========== */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;border:2px solid transparent;font:700 1rem 'Inter',sans-serif;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn.lleno{background:var(--degradado);color:#111;box-shadow:0 8px 24px rgba(255,90,31,.35)}
+    .btn.lleno:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,90,31,.5)}
+    .btn.borde{border-color:var(--borde);color:var(--texto);background:transparent}
+    .btn.borde:hover{border-color:var(--acento);color:var(--acento);transform:translateY(-3px)}
+
+    /* ========== TARJETAS ========== */
+    .tarjeta{background:var(--card);border:1px solid var(--borde);border-radius:var(--radio);padding:28px;box-shadow:var(--sombra);transition:transform .25s,border-color .25s,box-shadow .25s}
+    .tarjeta:hover{transform:translateY(-6px);border-color:var(--acento);box-shadow:0 14px 36px rgba(255,90,31,.18)}
+    #sobre{background:var(--bg2)}
+    .edad{display:flex;align-items:center;gap:26px;flex-wrap:wrap;max-width:520px}
+    .edad .num{font-family:'Bebas Neue',sans-serif;font-size:6.5rem;line-height:1;background:var(--degradado);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .edad p{color:var(--suave)}.edad strong{color:var(--texto);font-size:1.3rem;display:block}
+    .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+    .icono{font-size:2.6rem;display:block;margin-bottom:10px}
+    .tarjeta h3{font-size:1.6rem;margin-bottom:6px}.tarjeta p{color:var(--suave);font-size:.95rem}
+    .frase{margin-top:40px;padding:26px;border-left:5px solid var(--acento);background:var(--card);border-radius:0 var(--radio) var(--radio) 0;font-size:1.25rem;font-style:italic}
+    .frase small{display:block;color:var(--suave);font-style:normal;margin-top:6px}
+
+    /* ========== ENLACE ========== */
+    #enlace{text-align:center;background:var(--bg2)}
+    #enlace .sub{margin-inline:auto}
+    .btn.grande{font-size:1.2rem;padding:18px 40px;animation:pulso 2.4s ease-in-out infinite}
+    @keyframes pulso{50%{box-shadow:0 0 0 14px rgba(255,90,31,0)}0%{box-shadow:0 0 0 0 rgba(255,90,31,.5)}}
+
+    /* ========== LLAVES ========== */
+    .protegida{max-width:600px;border:1px dashed var(--acento);position:relative}
+    .sello{display:inline-block;background:rgba(255,90,31,.15);color:var(--acento2);padding:4px 14px;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:16px}
+    .llave{margin-bottom:22px}
+    .llave label{display:block;font-weight:700;margin-bottom:8px}
+    .fila{display:flex;gap:8px;flex-wrap:wrap}
+    .fila input{flex:1 1 200px;background:#0d0d0f;border:1px solid var(--borde);color:var(--texto);padding:12px 14px;border-radius:12px;font:500 1rem ui-monospace,Consolas,monospace}
+    .mini{background:#222227;color:var(--texto);border:1px solid var(--borde);padding:10px 14px;border-radius:12px;cursor:pointer;font:600 .85rem 'Inter',sans-serif;transition:background .2s,border-color .2s}
+    .mini:hover{background:#2c2c33;border-color:var(--acento)}
+    .aviso{font-size:.85rem;color:var(--suave)}
+
+    /* ========== CONTACTO ========== */
+    .redes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+    .redes .btn{justify-content:center}
+    footer{text-align:center;padding:30px 20px;color:var(--suave);border-top:1px solid var(--borde);font-size:.9rem}
+
+    /* ========== SUBIR ========== */
+    #subir{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:0;background:var(--degradado);color:#111;font-size:1.4rem;font-weight:700;cursor:pointer;box-shadow:var(--sombra);opacity:0;pointer-events:none;transform:translateY(12px);transition:.3s;z-index:90}
+    #subir.ver{opacity:1;pointer-events:auto;transform:none}
+
+    /* ========== ANIMACIÓN AL HACER SCROLL ========== */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width:720px){
+      .burger{display:block}
+      .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#0d0d0f;border-bottom:1px solid var(--borde)}
+      .menu.abierto{display:flex}
+      .menu a{display:block;padding:14px 22px}
+      section{padding:76px 18px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===== MENÚ ===== -->
+  <header>
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#inicio">DUVAN<b>.</b></a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#pasatiempos">Pasatiempos</a></li>
+        <li><a href="#enlace">Enlace</a></li>
+        <li><a href="#llaves">Llaves</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ===== 1. PORTADA ===== -->
+    <section id="inicio" aria-label="Portada">
+      <div class="caja">
+        <p class="hola">Bienvenido a mi página</p>
+        <!-- CAMBIA ESTO: tu nombre -->
+        <h1>Duvan Alexis</h1>
+        <!-- CAMBIA ESTO: frases que se escriben solas (separadas por comas) -->
+        <p class="typed" aria-live="off"><span id="typed"></span><span class="cursor" aria-hidden="true">|</span></p>
+        <div class="botones">
+          <a class="btn lleno" href="#pasatiempos">💪 Mi pasión</a>
+          <a class="btn borde" href="#contacto">Hablemos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2. SOBRE MÍ ===== -->
+    <section id="sobre">
+      <div class="caja">
+        <h2 class="titulo reveal">Sobre <span>mí</span></h2>
+        <p class="sub reveal">Joven, enfocado y con ganas de superarme todos los días.</p>
+        <article class="tarjeta edad reveal">
+          <!-- CAMBIA ESTO: tu edad (el número se anima solo) -->
+          <div class="num" id="edad" data-valor="17">17</div>
+          <p><strong>años</strong>Construyendo mi disciplina y mi futuro, un día a la vez.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3. PASATIEMPOS ===== -->
+    <section id="pasatiempos">
+      <div class="caja">
+        <h2 class="titulo reveal">Mi <span>pasión: entrenar</span></h2>
+        <p class="sub reveal">El gimnasio es mi lugar favorito para ponerme a prueba.</p>
+        <div class="rejilla">
+          <article class="tarjeta reveal"><span class="icono" aria-hidden="true">🏋️</span><h3>Pesas</h3><p>Fuerza y técnica: cada repetición cuenta.</p></article>
+          <article class="tarjeta reveal"><span class="icono" aria-hidden="true">🏃</span><h3>Cardio</h3><p>Resistencia para ir cada vez más lejos.</p></article>
+          <article class="tarjeta reveal"><span class="icono" aria-hidden="true">🎯</span><h3>Disciplina</h3><p>Entrenar incluso cuando no hay ganas.</p></article>
+          <article class="tarjeta reveal"><span class="icono" aria-hidden="true">🔁</span><h3>Constancia</h3><p>Los resultados llegan con el tiempo y el esfuerzo.</p></article>
+        </div>
+        <!-- CAMBIA ESTO: tu frase motivacional -->
+        <blockquote class="frase reveal">“La disciplina es hacer lo que toca, aunque no tengas ganas.”<small>— Duvan Alexis</small></blockquote>
+      </div>
+    </section>
+
+    <!-- ===== 4. ENLACE ===== -->
+    <section id="enlace">
+      <div class="caja">
+        <h2 class="titulo reveal">Mi <span>enlace</span></h2>
+        <p class="sub reveal">Toca el botón y entra a lo que quiero mostrarte.</p>
+        <!-- CAMBIA ESTO: reemplaza la URL por tu enlace real -->
+        <a class="btn lleno grande reveal" href="https://TU-URL-AQUI.com" target="_blank" rel="noopener noreferrer">🔗 Ir a mi enlace</a>
+      </div>
+    </section>
+
+    <!-- ===== 5. LLAVES DE ACCESO =====
+         ⚠️ IMPORTANTE: GitHub Pages es PÚBLICO. Aquí van SOLO marcadores.
+         NUNCA escribas contraseñas, API keys ni tokens reales en este archivo. -->
+    <section id="llaves">
+      <div class="caja">
+        <h2 class="titulo reveal">Llaves de <span>acceso</span></h2>
+        <p class="sub reveal">Diseño de tarjeta protegida con mostrar/ocultar y copiar.</p>
+        <article class="tarjeta protegida reveal">
+          <span class="sello">🔒 Zona protegida (decorativa)</span>
+
+          <div class="llave">
+            <label for="k1">Llave 1</label>
+            <div class="fila">
+              <!-- CAMBIA ESTO: el nombre de la llave y su marcador -->
+              <input id="k1" type="password" value="TU_LLAVE_AQUI" readonly>
+              <button class="mini mostrar" type="button" aria-pressed="false">👁️ Mostrar</button>
+              <button class="mini copiar" type="button">📋 Copiar</button>
+            </div>
+          </div>
+
+          <div class="llave">
+            <label for="k2">Llave 2</label>
+            <div class="fila">
+              <input id="k2" type="password" value="TU_LLAVE_AQUI" readonly>
+              <button class="mini mostrar" type="button" aria-pressed="false">👁️ Mostrar</button>
+              <button class="mini copiar" type="button">📋 Copiar</button>
+            </div>
+          </div>
+
+          <p class="aviso">Estos valores son de mentiras. Las llaves de verdad se guardan en un lugar privado, nunca en una página pública.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 6. CONTACTO / REDES ===== -->
+    <section id="contacto" style="background:var(--bg2)">
+      <div class="caja">
+        <h2 class="titulo reveal">Mis <span>redes</span></h2>
+        <p class="sub reveal">Sígueme y escríbeme por aquí.</p>
+        <div class="redes reveal">
+          <!-- CAMBIA ESTO: pon el enlace de cada red (borra las que no uses) -->
+          <a class="btn borde" href="https://TU-INSTAGRAM-AQUI.com" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+          <a class="btn borde" href="https://TU-TIKTOK-AQUI.com" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
+          <a class="btn borde" href="https://TU-YOUTUBE-AQUI.com" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
+          <a class="btn borde" href="https://TU-WHATSAPP-AQUI.com" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="anio"></span> Duvan Alexis · Hecho con constancia 💪</footer>
+  <button id="subir" aria-label="Volver arriba">↑</button>
+
+  <script>
+    /* ===== Efecto de texto que se escribe solo ===== */
+    const frases = ['Entreno. Me disciplino. Mejoro.', 'Constancia sobre motivación.', 'Hoy mejor que ayer.']; // CAMBIA ESTO
+    const el = document.getElementById('typed');
+    const reducir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducir) { el.textContent = frases[0]; }
+    else {
+      let f = 0, c = 0, borrando = false;
+      (function escribir() {
+        const txt = frases[f];
+        el.textContent = txt.slice(0, c);
+        if (!borrando && c === txt.length) { borrando = true; return setTimeout(escribir, 1600); }
+        if (borrando && c === 0) { borrando = false; f = (f + 1) % frases.length; }
+        c += borrando ? -1 : 1;
+        setTimeout(escribir, borrando ? 35 : 75);
+      })();
+    }
+
+    /* ===== Animación al hacer scroll + contador de edad ===== */
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entradas) => {
+        entradas.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      reveals.forEach(r => io.observe(r));
+
+      const edad = document.getElementById('edad');
+      if (!reducir) {
+        const meta = +edad.dataset.valor;
+        const co = new IntersectionObserver((e) => {
+          if (!e[0].isIntersecting) return;
+          let n = 0; const t = setInterval(() => { edad.textContent = ++n; if (n >= meta) clearInterval(t); }, 70);
+          co.disconnect();
+        }, { threshold: 0.6 });
+        co.observe(edad);
+      }
+    } else { reveals.forEach(r => r.classList.add('in')); }
+
+    /* ===== Menú en celular ===== */
+    const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+    burger.addEventListener('click', () => {
+      const abierto = menu.classList.toggle('abierto');
+      burger.setAttribute('aria-expanded', abierto);
+    });
+    menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('abierto'); burger.setAttribute('aria-expanded', 'false'); } });
+
+    /* ===== Llaves: mostrar/ocultar y copiar ===== */
+    document.querySelectorAll('.llave').forEach(caja => {
+      const input = caja.querySelector('input'), ver = caja.querySelector('.mostrar'), copiar = caja.querySelector('.copiar');
+      ver.addEventListener('click', () => {
+        const oculto = input.type === 'password';
+        input.type = oculto ? 'text' : 'password';
+        ver.textContent = oculto ? '🙈 Ocultar' : '👁️ Mostrar';
+        ver.setAttribute('aria-pressed', oculto);
+      });
+      copiar.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(input.value); }
+        catch (e) { const t = input.type; input.type = 'text'; input.select(); document.execCommand('copy'); input.type = t; }
+        copiar.textContent = '✅ Copiado';
+        setTimeout(() => copiar.textContent = '📋 Copiar', 1800);
+      });
+    });
+
+    /* ===== Botón volver arriba ===== */
+    const subir = document.getElementById('subir');
+    addEventListener('scroll', () => subir.classList.toggle('ver', scrollY > 500), { passive: true });
+    subir.addEventListener('click', () => scrollTo({ top: 0, behavior: reducir ? 'auto' : 'smooth' }));
+
+    /* ===== Año del pie de página ===== */
+    document.getElementById('anio').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
