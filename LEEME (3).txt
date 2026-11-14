@@ -1,0 +1,15 @@
+ACTIVIDAD PRÁCTICA II - HOJA DE ESTILOS CSS3
+
+Archivos:
+- idex.html: página HTML del perfil.
+- estilos.css: hoja de estilos CSS3 enlazada desde el HTML.
+
+IMPORTANTE:
+El HTML original hacía referencia a una imagen llamada 604540.png, pero esa imagen no venía adjunta con el archivo HTML.
+Para mostrar tu fotografía, copia el archivo 604540.png dentro de esta misma carpeta. Si tu foto tiene otro nombre, cambia el valor de src en idex.html.
+
+Cómo probar:
+1. Descomprime el archivo ZIP.
+2. Coloca la fotografía 604540.png en la misma carpeta que idex.html.
+3. Abre idex.html con Chrome.
+4. Para entregar, comprime la carpeta con idex.html, estilos.css y la fotografía.
